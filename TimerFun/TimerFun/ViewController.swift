@@ -18,6 +18,9 @@ class ViewController: UIViewController {
         configureLabel()
         view.backgroundColor = .random()
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(changeBackground), userInfo: nil, repeats: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+            self.timer.invalidate()
+        }
     }
     
     @objc func changeBackground () {
