@@ -11,20 +11,34 @@ import UIKit
 class ViewController: UIViewController {
     
     let countLabel = UILabel()
-    var timer = Timer()
+    var colorTimer = Timer()
+    var countLabelTimer = Timer()
+    var count = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureLabel()
         view.backgroundColor = .random()
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(changeBackground), userInfo: nil, repeats: true)
+        countLabelTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(incrementCounLabel), userInfo: nil, repeats: true)
+        colorTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(changeBackground), userInfo: nil, repeats: true)
         DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
-            self.timer.invalidate()
+            self.countLabelTimer.invalidate()
+            self.colorTimer.invalidate()
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        colorTimer.invalidate()
     }
     
     @objc func changeBackground () {
         view.backgroundColor = .random()
+    }
+    
+    @objc func incrementCounLabel () {
+        count += 1
+        countLabel.text = String(count)
     }
 
     func configureLabel () {
