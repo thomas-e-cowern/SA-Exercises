@@ -15,10 +15,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         createDismissKeyboardTapGesture()
+        configureTextFields()
     }
     
     func configureTextFields () {
-        
+        for textField in textFields {
+            textField.textColor = .red
+            textField.textAlignment = .center
+        }
     }
     
     func createDismissKeyboardTapGesture () {
@@ -27,7 +31,9 @@ class ViewController: UIViewController {
     }
 
     @IBAction func clearButtonTapped(_ sender: Any) {
-        
+        for textField in textFields {
+            textField.text = ""
+        }
     }
     
 }

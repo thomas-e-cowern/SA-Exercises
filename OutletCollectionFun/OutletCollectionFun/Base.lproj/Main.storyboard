@@ -76,6 +76,8 @@
                     </view>
                     <connections>
                         <outletCollection property="textFields" destination="wdc-hv-1TQ" collectionClass="NSMutableArray" id="g0e-UX-H6C"/>
+                        <outletCollection property="textFields" destination="vIi-Cg-yHg" collectionClass="NSMutableArray" id="KuH-3p-TBJ"/>
+                        <outletCollection property="textFields" destination="z72-0z-E31" collectionClass="NSMutableArray" id="eyH-YU-LnJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
