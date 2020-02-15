@@ -15,14 +15,15 @@ class SurveyButton: UIButton {
         setUpButton()
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setUpButton()
     }
     
     func setUpButton () {
         setTitleColor(.white, for: .normal)
         backgroundColor = .red
-        titleLabel?.font = UIFont(name: "AvenirNext-DemiBoldItalic", size: 28)
+        titleLabel?.font = UIFont(name: "Helvetica", size: 28)
         layer.cornerRadius = 10
     }
     
